@@ -9,11 +9,10 @@
     "ignoreUnknown": false,
     "includes": [
       "**/src/**/*",
-      "**/.vscode/**/*",
       "**/index.html",
       "**/vite.config.ts",
       "!**/src/routeTree.gen.ts",
-      "!**/src/styles.css"
+      "**/src/styles.css"
     ]
   },
   "formatter": {
@@ -22,18 +21,13 @@
     "indentWidth": 2
   },
   "linter": {
-    "enabled": true,
     "rules": {
-      "recommended": true,
       "correctness": {
         "noUnusedFunctionParameters": "error",
         "noUnusedImports": "error",
         "noUnusedVariables": "error",
         "noUnusedLabels": "error",
         "noUnusedPrivateClassMembers": "error"
-      },
-      "a11y": {
-        "noStaticElementInteractions": "off"
       }
     }
   },
