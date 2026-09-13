@@ -1,5 +1,5 @@
+import { createRouter, RouterProvider } from "@tanstack/solid-router";
 import { render } from "solid-js/web";
-import { RouterProvider, createRouter } from "@tanstack/solid-router";
 import { routeTree } from "./route-tree.gen";
 
 const router = createRouter({
@@ -15,6 +15,7 @@ declare module "@tanstack/solid-router" {
   }
 }
 
+// biome-ignore lint/style/noNonNullAssertion: <app exists, why bothering?>
 const rootElement = document.getElementById("app")!;
 
 if (!rootElement.innerHTML) {
