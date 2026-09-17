@@ -33,10 +33,10 @@ function FooterLink({ label, to }: { label: string; to: LinkProps["to"] }) {
 
 export default function Footer() {
   return (
-    <footer class="pb-16">
+    <footer class="pb-16 bg-background/75 backdrop-blur-xl">
       <div class="mx-auto max-w-4xl px-6">
         <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
-          <FooterAnchor label="Who We Are" href="https://docufybd.com/about" />
+          <FooterLink label="Who We Are" to="/about" />
           <FooterLink label="Terms of Service" to="/terms-and-conditions" />
           <FooterLink label="Privacy Policy" to="/privacy-policy" />
         </div>

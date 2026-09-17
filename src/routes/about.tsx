@@ -41,8 +41,8 @@ function getGMT6Time() {
 
 function RouteComponent() {
   return (
-    <>
-      <section class="h-[50dvh] w-full flex justify-center items-center flex-col gap-4 pt-30">
+    <div class="backdrop-blur-xl bg-transparent">
+      <section class="w-full flex justify-center items-center flex-col gap-4 pt-30">
         <h1 class="text-center tracking-wider">About Docufy</h1>
         <span class="text-center text-sm sm:text-lg uppercase tracking-widest text-accent">
           work you can trust
@@ -62,7 +62,8 @@ function RouteComponent() {
             who we are
           </span>
           <span class="sm:text-xl max-sm:text-center col-span-2 font-light max-sm:px-4">
-            Docufy runs three specialized units: Docs by Docufy for documentation,
+            Docufy runs three specialized units: Docs by Docufy for
+            documentation,{" "}
             <a
               href="https://tech.docufybd.com"
               target="_blank"
@@ -70,8 +71,8 @@ function RouteComponent() {
               class="border-b border-accent"
             >
               Docufy Tech
-            </a>
-            for technology, and
+            </a>{" "}
+            for technology, and{" "}
             <a
               href="https://fiscal.docufybd.com"
               target="_blank"
@@ -79,10 +80,10 @@ function RouteComponent() {
               class="border-b border-accent"
             >
               Docufy Fiscal
-            </a>
+            </a>{" "}
             for finance. We work with companies that need real outcomes, not
-            slide decks. Every project ships with structure, clear communication,
-            and someone actually accountable.
+            slide decks. Every project ships with structure, clear
+            communication, and someone actually accountable.
           </span>
         </div>
         <div class="flex flex-col sm:grid sm:grid-cols-3 gap-4 w-full pt-10">
@@ -90,9 +91,10 @@ function RouteComponent() {
             what we do
           </span>
           <span class="sm:text-xl max-sm:text-center col-span-2 font-light max-sm:px-4">
-            We start with research, not templates. First we understand the
-            problem, then define the outcome, then build the solution. You get
-            what you need to hit your goals — nothing trendy, nothing extra.
+            We start with research, not templates. As the first move, we
+            understand the problem, then define the outcome, then build the
+            solution. You get what you need to achieve your goals. Nothing
+            trendy, nothing extra, nothing irrelevant.
           </span>
         </div>
       </section>
@@ -121,6 +123,6 @@ function RouteComponent() {
           </a>
         </AnimatedButton>
       </section>
-    </>
+    </div>
   );
 }

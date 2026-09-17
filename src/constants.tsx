@@ -56,6 +56,12 @@ export const docsSolutions: Solution[] = [
     icon: <IconFileDescription class="size-6" />,
   },
   {
+    title: "Request For Proposal (RFP)",
+    description:
+      "Formal document soliciting proposals from vendors with scope and evaluation criteria.",
+    icon: <IconFileText class="size-6" />,
+  },
+  {
     title: "Sales Proposal",
     description:
       "Formal proposal to offer products or services to potential clients.",
@@ -278,12 +284,6 @@ export const techSolutions: Solution[] = [
     title: "Software Requirement Specification (SRS)",
     description: "Defines clear, verifiable system requirements.",
     icon: <IconAppWindow class="size-6" />,
-  },
-  {
-    title: "Request For Proposal (RFP)",
-    description:
-      "Formal document soliciting proposals from vendors with scope and evaluation criteria.",
-    icon: <IconFileText class="size-6" />,
   },
   {
     title: "Web Application Development",
