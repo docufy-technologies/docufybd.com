@@ -36,6 +36,13 @@ import {
 } from "@tabler/icons-solidjs";
 import type { JSX } from "solid-js";
 
+export const reasons = [
+  "We research before we build — every project starts with your business, not a template.",
+  "Research redirects our workflow, so what we deliver actually aligns with your goals.",
+  "Docs, tech, and fiscal — one team fluent across all three, nothing gets lost between them.",
+  "Every deliverable is judged against your business goal, not against our own portfolio.",
+];
+
 type Solution = {
   title: string;
   description: string;
