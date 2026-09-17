@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/solutions': typeof SolutionsRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/solutions': typeof SolutionsRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,21 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/solutions': typeof SolutionsRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/faq' | '/privacy-policy' | '/solutions'
+  fullPaths:
+    '/' | '/faq' | '/privacy-policy' | '/solutions' | '/terms-and-conditions'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/faq' | '/privacy-policy' | '/solutions'
-  id: '__root__' | '/' | '/faq' | '/privacy-policy' | '/solutions'
+  to: '/' | '/faq' | '/privacy-policy' | '/solutions' | '/terms-and-conditions'
+  id:
+    | '__root__'
+    | '/'
+    | '/faq'
+    | '/privacy-policy'
+    | '/solutions'
+    | '/terms-and-conditions'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +83,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SolutionsRoute: typeof SolutionsRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
 }
 
 declare module '@tanstack/solid-router' {
@@ -99,6 +116,13 @@ declare module '@tanstack/solid-router' {
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +131,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   SolutionsRoute: SolutionsRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
