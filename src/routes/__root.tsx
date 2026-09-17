@@ -1,7 +1,7 @@
 import { createRootRoute, Outlet } from "@tanstack/solid-router";
 
 import "../styles.css";
-import Footer from "~/components/blocks/footer";
+import Footer from "@/components/blocks/footer";
 
 export const Route = createRootRoute({ component: RootComponent });
 
