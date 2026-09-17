@@ -7,19 +7,6 @@ import {
 } from "@tabler/icons-solidjs";
 import { Link, type LinkProps } from "@tanstack/solid-router";
 
-function FooterAnchor({ label, href }: { label: string; href: string }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="text-muted-foreground hover:text-primary block duration-150"
-    >
-      {label}
-    </a>
-  );
-}
-
 function FooterLink({ label, to }: { label: string; to: LinkProps["to"] }) {
   return (
     <Link
