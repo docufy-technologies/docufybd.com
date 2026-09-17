@@ -1,0 +1,98 @@
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandX,
+  IconMail,
+} from "@tabler/icons-solidjs";
+import { Link, type LinkProps } from "@tanstack/solid-router";
+
+function FooterAnchor({ label, href }: { label: string; href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-muted-foreground hover:text-primary block duration-150"
+    >
+      {label}
+    </a>
+  );
+}
+
+function FooterLink({ label, to }: { label: string; to: LinkProps["to"] }) {
+  return (
+    <Link
+      to={to}
+      class="text-muted-foreground hover:text-primary block duration-150"
+    >
+      {label}
+    </Link>
+  );
+}
+
+export default function Footer() {
+  return (
+    <footer class="pb-16">
+      <div class="mx-auto max-w-4xl px-6">
+        <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <FooterAnchor label="Who We Are" href="https://docufybd.com/about" />
+          <FooterLink label="Terms of Service" to="/terms-and-conditions" />
+          <FooterLink label="Privacy Policy" to="/privacy-policy" />
+        </div>
+        <div class="my-5 flex flex-wrap justify-center gap-6 text-sm">
+          <a
+            href="https://x.com/docufybd"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="X/Twitter"
+            class="text-muted-foreground hover:text-primary block"
+          >
+            <IconBrandX />
+          </a>
+          <a
+            href="https://linkedin.com/company/docufybd"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="text-muted-foreground hover:text-primary block"
+          >
+            <IconBrandLinkedin />
+          </a>
+          <a
+            href="https://facebook.com/docufy.bd"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            class="text-muted-foreground hover:text-primary block"
+          >
+            <IconBrandFacebook />
+          </a>
+          <a
+            href="https://instagram.com/docufy_"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="text-muted-foreground hover:text-primary block"
+          >
+            <IconBrandInstagram />
+          </a>
+          <a
+            href="mailto:info@tech.docufybd.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Email"
+            class="text-muted-foreground hover:text-primary block"
+          >
+            <IconMail />
+          </a>
+        </div>
+        <span class="text-muted-foreground block text-center text-base font-bold">
+          {" "}
+          © {new Date().getFullYear()} <a href="https://docufybd.com">Docufy</a>
+          , All rights reserved
+        </span>
+      </div>
+    </footer>
+  );
+}
