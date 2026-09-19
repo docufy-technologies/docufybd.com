@@ -41,7 +41,7 @@ function getGMT6Time() {
 
 function RouteComponent() {
   return (
-    <div class="backdrop-blur-xl bg-transparent">
+    <>
       <section class="w-full flex justify-center items-center flex-col gap-4 pt-30">
         <h1 class="text-center tracking-wider">About Docufy</h1>
         <span class="text-center text-sm sm:text-lg uppercase tracking-widest text-accent">
@@ -123,6 +123,6 @@ function RouteComponent() {
           </a>
         </AnimatedButton>
       </section>
-    </div>
+    </>
   );
 }

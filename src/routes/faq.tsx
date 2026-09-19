@@ -14,7 +14,7 @@ export const Route = createFileRoute("/faq")({
 
 function RouteComponent() {
   return (
-    <div class="w-full p-0 m-0 bg-transparent backdrop-blur-xl">
+    <div class="w-full p-0 m-0">
       <section class="mx-auto max-w-4xl px-6 py-30">
         <div class="mb-10 max-w-3xl">
           <h1>Frequently Asked Questions</h1>

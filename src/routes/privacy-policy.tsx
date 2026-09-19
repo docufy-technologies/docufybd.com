@@ -6,7 +6,7 @@ export const Route = createFileRoute("/privacy-policy")({
 
 function RouteComponent() {
   return (
-    <div class="w-full p-0 m-0 bg-transparent backdrop-blur-xl">
+    <div class="w-full p-0 m-0">
       <section class="max-w-3xl p-6 my-30 mx-auto *:leading-relaxed [&>h1,h2,h3,h4,h5,h6]:mb-2 [&>h1,h2,h3,h4,h5,h6]:mt-8 [&>p,ul,li]:text-lg [&>ul,li]:list-disc [&>ul]:mt-0 [&>p]:my-4">
         <h1>Privacy Policy</h1>
         <p>
