@@ -4,7 +4,9 @@ import { defineConfig } from "vite";
 import solidPlugin from "vite-plugin-solid";
 
 export default defineConfig({
-  resolve: { tsconfigPaths: true },
+  resolve: {
+    tsconfigPaths: true,
+  },
   plugins: [
     tailwindcss(),
     tanstackRouter({
@@ -13,9 +15,17 @@ export default defineConfig({
       generatedRouteTree: "./src/route-tree.gen.ts",
       routeToken: "_layout",
     }),
-    solidPlugin(),
+    solidPlugin({
+      dev: false,
+      hot: true,
+      solid: {
+        generate: "dom",
+      },
+    }),
   ],
   server: {
+    cors: false,
+    preTransformRequests: true,
     watch: {
       ignored: [
         "**/node_modules/**",
@@ -24,8 +34,37 @@ export default defineConfig({
         "**/docs/**",
         "**/*.md",
         "**/pnpm-lock.yaml",
+        "**/*.test.*",
+        "**/*.spec.*",
+        "**/coverage/**",
+        "**/.vscode/**",
+        "**/.idea/**",
       ],
     },
+    hmr: {
+      overlay: false,
+    },
+    warmup: {
+      clientFiles: [
+        "./src/main.tsx",
+        "./src/routes/__root.tsx",
+        "./src/routes/index.tsx",
+        "./src/styles.css",
+      ],
+    },
+  },
+  optimizeDeps: {
+    include: [
+      "solid-js",
+      "solid-js/web",
+      "solid-js/store",
+      "solid-js/html",
+      "class-variance-authority",
+    ],
+  },
+  css: {
+    devSourcemap: false,
+    transformer: "lightningcss",
   },
   build: {
     rollupOptions: {
