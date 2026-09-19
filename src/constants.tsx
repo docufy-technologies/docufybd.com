@@ -1,7 +1,7 @@
 export const reasons = [
-  "Every project starts with the analysis of your need, not a template.",
-  "Research shapes our workflow. We deliver actually aligns with your goals.",
-  "Every deliverable is tailord for your business goal, not for our portfolio.",
+  "Every project starts with the analysis, not a template.",
+  "Our experts review each draft so that you can move your focus to the next.",
+  "Each deliverable is tailored for your goal, not for our portfolio.",
 ];
 
 import {

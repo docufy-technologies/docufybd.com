@@ -71,14 +71,15 @@ function Home() {
 
       <section class="w-full px-6 py-24 md:py-32">
         <div class="max-w-6xl mx-auto">
-          <div class="font-body leading-tight text-center text-3xl max-sm:text-2xl w-full pb-6">
+          <div class="font-body leading-tight text-center text-3xl max-sm:text-2xl w-full pb-16">
             Why choose <span class="italic font-heading ">Docufy</span>?
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <For each={reasons}>
-              {(reason) => (
-                <div class="bg-card/75 p-6 md:p-8 flex flex-col justify-between min-h-55 transition-colors hover:border-border">
-                  <span class="text-3xl leading-snug">{reason}</span>
+              {(reason, i) => (
+                <div class="bg-card/75 p-6 flex flex-col justify-start items-start gap-8 transition-colors hover:border-border">
+                  <h1 class="text-7xl">{i() + 1}</h1>
+                  <span class="text-2xl leading-snug">{reason}</span>
                 </div>
               )}
             </For>
@@ -88,8 +89,8 @@ function Home() {
 
       <section class="w-full px-16 py-6 md:py-32">
         <div class="max-w-2xl mx-auto">
-          <h1 class="text-center font-medium text-3xl md:text-5xl font-heading mb-8">
-            One less thing to worry. Let Docufy Tech handle it for you.
+          <h1 class="text-center leading-tight font-medium text-3xl md:text-5xl mb-8">
+            Add a why to your worries. Let Docufy handle them for you.
           </h1>
           <div class="flex gap-6 justify-center items-center max-sm:flex-col max-w-sm mx-auto">
             <AnimatedButton variant="accent" class="w-full">
