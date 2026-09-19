@@ -1,6 +1,5 @@
 import type { JSX } from "solid-js";
 import { createSignal, onCleanup, onMount } from "solid-js";
-import { cn } from "@/lib/utils";
 
 type AnimatedButtonVariant =
   | "default"
@@ -29,7 +28,7 @@ type AnimatedButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses: Record<AnimatedButtonVariant, string> = {
   default: "bg-primary text-primary-foreground",
-  outline: "bg-background text-foreground",
+  outline: "text-foreground",
   secondary: "bg-secondary text-secondary-foreground",
   ghost: "bg-transparent text-foreground",
   destructive: "bg-destructive/10 text-destructive",
@@ -49,15 +48,19 @@ const sizeClasses: Record<AnimatedButtonSize, string> = {
   "icon-lg": "size-10",
 };
 
-export function AnimatedButton(props: AnimatedButtonProps) {
-  const {
-    variant = "default",
-    size = "default",
-    children = "Browse Components",
-    class: className,
-    ...rest
-  } = props;
+function getRestProps(props: AnimatedButtonProps) {
+  const copy = { ...props } as Record<string, unknown>;
+  delete copy.variant;
+  delete copy.size;
+  delete copy.class;
+  delete copy.children;
+  return copy as Omit<
+    AnimatedButtonProps,
+    "variant" | "size" | "class" | "children"
+  >;
+}
 
+export function AnimatedButton(props: AnimatedButtonProps) {
   const [pressed, setPressed] = createSignal(false);
 
   let textRef: HTMLSpanElement | undefined;
@@ -92,15 +95,13 @@ export function AnimatedButton(props: AnimatedButtonProps) {
         transform: pressed() ? "scale(0.97)" : "scale(1)",
         transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
       }}
-      class={cn(
-        "group inline-flex items-center justify-center rounded-4xl relative overflow-hidden border border-secondary cursor-pointer text-sm",
-        "font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50",
-        "[--shine:rgba(0,0,0,.66)] dark:[--shine:rgba(255,255,255,.66)]",
-        variantClasses[variant],
-        sizeClasses[size],
-        className,
-      )}
-      {...rest}
+      class="group inline-flex items-center justify-center rounded-4xl relative overflow-hidden border border-secondary cursor-pointer text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 [--shine:rgba(0,0,0,.66)] dark:[--shine:rgba(255,255,255,.66)]"
+      classList={{
+        [variantClasses[props.variant ?? "default"]]: true,
+        [sizeClasses[props.size ?? "default"]]: true,
+        [props.class ?? ""]: !!props.class,
+      }}
+      {...getRestProps(props)}
     >
       {/* Text with shine mask - animated via rAF */}
       <span
@@ -114,7 +115,7 @@ export function AnimatedButton(props: AnimatedButtonProps) {
             "linear-gradient(-75deg, white calc(var(--mask-x) + 20%), transparent calc(var(--mask-x) + 30%), white calc(var(--mask-x) + 100%))",
         }}
       >
-        {children}
+        {props.children ?? "Browse Components"}
       </span>
 
       {/* Border shine effect */}

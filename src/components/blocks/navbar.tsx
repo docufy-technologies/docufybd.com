@@ -1,6 +1,6 @@
+import { IconMenu2, IconX } from "@tabler/icons-solidjs";
 import { Link, type LinkProps } from "@tanstack/solid-router";
 import { createSignal, type JSX } from "solid-js";
-import { cn } from "@/lib/utils";
 
 type Position = {
   left: number;
@@ -15,12 +15,11 @@ function NavBar() {
     opacity: 0,
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = createSignal(false);
-
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <nav class="fixed top-0 left-0 z-100 flex w-full items-center justify-between backdrop-blur-xl px-6 py-3 max-sm:px-4">
+    <nav class="fixed top-0 left-0 z-100 flex w-full items-center justify-between px-6 py-6 max-sm:px-4">
       {/* Logo */}
       <Link to="/" class="flex shrink-0 items-center" onClick={closeMobileMenu}>
         <img
@@ -28,7 +27,7 @@ function NavBar() {
           alt="Docufy"
           width={120}
           height={32}
-          class="w-[120px] h-[32px] object-contain"
+          class="w-30 h-8 object-contain"
         />
       </Link>
 
@@ -43,7 +42,11 @@ function NavBar() {
         <NavTab setPosition={setPosition} to="/about" onClick={closeMobileMenu}>
           About
         </NavTab>
-        <NavTab setPosition={setPosition} to="/solutions" onClick={closeMobileMenu}>
+        <NavTab
+          setPosition={setPosition}
+          to="/solutions"
+          onClick={closeMobileMenu}
+        >
           Solutions
         </NavTab>
         <NavTab setPosition={setPosition} to="/faq" onClick={closeMobileMenu}>
@@ -82,13 +85,9 @@ function NavBar() {
         aria-label={isMobileMenuOpen() ? "Close menu" : "Open menu"}
       >
         {isMobileMenuOpen() ? (
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <IconX class="size-6" aria-hidden="true" />
         ) : (
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+          <IconMenu2 class="size-6" aria-hidden="true" />
         )}
       </button>
 
@@ -96,20 +95,29 @@ function NavBar() {
       <button
         id="mobile-menu"
         type="button"
-        class={cn(
-          "fixed inset-0 z-99 md:hidden transition-opacity duration-300",
-          isMobileMenuOpen() ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        )}
+        class="fixed inset-0 z-99 md:hidden transition-opacity duration-300"
+        classList={{
+          "opacity-100 pointer-events-auto": isMobileMenuOpen(),
+          "opacity-0 pointer-events-none": !isMobileMenuOpen(),
+        }}
         onClick={closeMobileMenu}
         onKeyDown={(e) => e.key === "Escape" && closeMobileMenu()}
         aria-hidden={!isMobileMenuOpen()}
       >
         <div class="absolute right-0 top-0 h-full w-full max-w-sm bg-background shadow-xl border-l border-secondary flex flex-col">
           <div class="flex flex-col items-start px-6 py-8 gap-6">
-            <NavTabMobile to="/" onClick={closeMobileMenu}>Home</NavTabMobile>
-            <NavTabMobile to="/about" onClick={closeMobileMenu}>About</NavTabMobile>
-            <NavTabMobile to="/solutions" onClick={closeMobileMenu}>Solutions</NavTabMobile>
-            <NavTabMobile to="/faq" onClick={closeMobileMenu}>FAQs</NavTabMobile>
+            <NavTabMobile to="/" onClick={closeMobileMenu}>
+              Home
+            </NavTabMobile>
+            <NavTabMobile to="/about" onClick={closeMobileMenu}>
+              About
+            </NavTabMobile>
+            <NavTabMobile to="/solutions" onClick={closeMobileMenu}>
+              Solutions
+            </NavTabMobile>
+            <NavTabMobile to="/faq" onClick={closeMobileMenu}>
+              FAQs
+            </NavTabMobile>
             <div class="flex flex-col gap-3 w-full pt-4 border-t border-secondary">
               <a
                 href="mailto:info@docufybd.com"
@@ -165,10 +173,8 @@ function NavTab(props: {
         }}
         onClick={props.onClick}
         onKeyDown={handleKeyDown}
-        class={cn(
-          "relative z-10 block cursor-pointer px-3 py-1.5 text-base! md:text-sm rounded-full hover:bg-secondary",
-          props.class,
-        )}
+        class="relative z-10 block cursor-pointer px-3 py-1.5 text-base! md:text-sm rounded-full hover:bg-secondary"
+        classList={{ [props.class ?? ""]: !!props.class }}
       >
         {props.children}
       </li>
@@ -176,7 +182,11 @@ function NavTab(props: {
   );
 }
 
-function NavTabMobile(props: { children: JSX.Element; to: LinkProps["to"]; onClick?: () => void }) {
+function NavTabMobile(props: {
+  children: JSX.Element;
+  to: LinkProps["to"];
+  onClick?: () => void;
+}) {
   const handleKeyDown = (e: KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -200,7 +210,7 @@ function NavTabMobile(props: { children: JSX.Element; to: LinkProps["to"]; onCli
 function Cursor(props: { position: () => Position }) {
   return (
     <li
-      class="absolute z-0 h-8 -translate-y-1/2 top-1/2 rounded-full bg-secondary transition-all duration-300 ease-out"
+      class="absolute z-0 h-9 -translate-y-1/2 top-1/4 rounded-full bg-secondary transition-all duration-300 ease-out"
       style={{
         left: `${props.position().left}px`,
         width: `${props.position().width}px`,

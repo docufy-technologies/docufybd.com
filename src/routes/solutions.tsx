@@ -6,37 +6,33 @@ export const Route = createFileRoute("/solutions")({
   component: RouteComponent,
 });
 
-function SolutionsCardCustom({
-  title,
-  description,
-  icon,
-}: {
+function SolutionsCardCustom(props: {
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: () => JSX.Element;
 }) {
   return (
     <div class="space-y-3 text-center bg-secondary/30">
       <div class="relative mx-auto flex aspect-square size-12 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border items-center justify-center mb-4">
-        {icon}
+        {props.icon()}
       </div>
-      <h3 class="text-xl">{title}</h3>
-      <p class="text-base mt-2 leading-tight">{description}</p>
+      <h3 class="text-xl">{props.title}</h3>
+      <p class="text-base mt-2 leading-tight">{props.description}</p>
     </div>
   );
 }
 
-function Entitled({ children }: { children: JSX.Element }) {
+function Entitled(props: { children: JSX.Element }) {
   return (
     <p class="capitalize leading-relaxed tracking-wider text-center font-heading mt-4">
-      {children}
+      {props.children}
     </p>
   );
 }
 
 function RouteComponent() {
   return (
-    <section class="py-12 md:py-20 backdrop-blur-sm bg-transparent max-sm:mt-20">
+    <section class="py-12 md:py-20 max-sm:mt-20">
       <div class="mx-auto max-w-5xl space-y-8 px-6 text-center flex flex-col items-center justify-center">
         <p class="text-center text-2xl font-medium text-foreground">
           Docufy helps businesses and individuals through three services

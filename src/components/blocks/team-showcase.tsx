@@ -4,7 +4,6 @@ import {
   IconWorld,
 } from "@tabler/icons-solidjs";
 import { createSignal } from "solid-js";
-import { cn } from "../../lib/utils";
 
 export interface TeamMember {
   id: string;
@@ -72,12 +71,11 @@ interface TeamShowcaseProps {
   members?: TeamMember[];
 }
 
-export function TeamShowcaseMobile({
-  members = DEFAULT_MEMBERS,
-}: TeamShowcaseProps) {
+export function TeamShowcaseMobile(props: TeamShowcaseProps) {
+  const members = () => props.members ?? DEFAULT_MEMBERS;
   return (
     <div class="sm:hidden flex flex-col justify-center items-center gap-16">
-      {members.map((member) => (
+      {members().map((member) => (
         <div class="flex flex-col items-center gap-4 max-w-[90%] text-center!">
           <img
             src={member.imageURL}
@@ -136,18 +134,15 @@ export function TeamShowcaseMobile({
   );
 }
 
-export function TeamShowcaseDesktop({
-  members = DEFAULT_MEMBERS,
-}: TeamShowcaseProps) {
+export function TeamShowcaseDesktop(props: TeamShowcaseProps) {
+  const members = () => props.members ?? DEFAULT_MEMBERS;
   const [hoveredId, setHoveredId] = createSignal<string | null>(null);
 
-  const col1 = members.filter(
-    (m) => m.id === "moon-bmda" || m.id === "ashik-clo",
-  );
-  const col2 = members.filter((m) => m.id === "sneha-ceo");
-  const col3 = members.filter(
-    (m) => m.id === "snigdho-cmo" || m.id === "ratul-cto",
-  );
+  const col1 = () =>
+    members().filter((m) => m.id === "moon-bmda" || m.id === "ashik-clo");
+  const col2 = () => members().filter((m) => m.id === "sneha-ceo");
+  const col3 = () =>
+    members().filter((m) => m.id === "snigdho-cmo" || m.id === "ratul-cto");
 
   return (
     <div class="max-sm:hidden flex flex-col md:flex-row items-start gap-8 md:gap-10 lg:gap-6 select-none w-full max-w-4xl mx-auto py-8 px-4 md:px-6 font-sans">
@@ -155,7 +150,7 @@ export function TeamShowcaseDesktop({
       <div class="flex gap-2 flex-shrink-0 overflow-x-auto mx-auto pb-1 md:pb-0">
         {/* Column 1 */}
         <div class="flex flex-col gap-2">
-          {col1.map((member) => (
+          {col1().map((member) => (
             <PhotoCard
               member={member}
               class="w-[130px] sm:h-[140px] md:w-[155px] md:h-[165px]"
@@ -167,7 +162,7 @@ export function TeamShowcaseDesktop({
 
         {/* Column 2 */}
         <div class="flex flex-col gap-2 mt-[56px] sm:mt-[72px] md:mt-[96px]">
-          {col2.map((member) => (
+          {col2().map((member) => (
             <PhotoCard
               member={member}
               class="w-[130px] sm:h-[140px] md:w-[155px] md:h-[165px]"
@@ -179,7 +174,7 @@ export function TeamShowcaseDesktop({
 
         {/* Column 3 */}
         <div class="flex flex-col gap-2 mt-[22px] sm:mt-[26px] md:mt-[32px]">
-          {col3.map((member) => (
+          {col3().map((member) => (
             <PhotoCard
               member={member}
               class="w-[130px] sm:h-[140px] md:w-[155px] md:h-[165px]"
@@ -192,7 +187,7 @@ export function TeamShowcaseDesktop({
 
       {/* ── Right: member name list*/}
       <div class="flex flex-col sm:grid sm:grid-cols-2 md:flex md:flex-col gap-4 md:gap-5 pt-0 md:pt-2 flex-1 w-full">
-        {members.map((member) => (
+        {members().map((member) => (
           <MemberRow
             member={member}
             hoveredId={hoveredId}
@@ -220,11 +215,12 @@ function PhotoCard(props: {
   return (
     <button
       type="button"
-      class={cn(
-        "overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-opacity duration-400",
-        props.class,
-        isDimmed() ? "opacity-60" : "opacity-100",
-      )}
+      class="overflow-hidden rounded-xl cursor-pointer flex-shrink-0 transition-opacity duration-400"
+      classList={{
+        [props.class ?? ""]: !!props.class,
+        "opacity-60": isDimmed(),
+        "opacity-100": !isDimmed(),
+      }}
       onMouseEnter={() => props.onHover(props.member.id)}
       onMouseLeave={() => props.onHover(null)}
     >
@@ -257,10 +253,11 @@ function MemberRow(props: {
   return (
     <button
       type="button"
-      class={cn(
-        "cursor-pointer transition-opacity duration-300 text-right",
-        isDimmed() ? "opacity-50" : "opacity-100",
-      )}
+      class="cursor-pointer transition-opacity duration-300 text-right"
+      classList={{
+        "opacity-50": isDimmed(),
+        "opacity-100": !isDimmed(),
+      }}
       onMouseEnter={() => props.onHover(props.member.id)}
       onMouseLeave={() => props.onHover(null)}
     >
@@ -269,12 +266,11 @@ function MemberRow(props: {
         {/* Social icons */}
         {props.member.socialLinks && (
           <div
-            class={cn(
-              "flex items-center gap-1.5 ml-0.5 transition-all duration-200",
-              isActive()
-                ? "opacity-100 translate-x-0"
-                : "opacity-0 -translate-x-2 pointer-events-none",
-            )}
+            class="flex items-center gap-1.5 ml-0.5 transition-all duration-200"
+            classList={{
+              "opacity-100 translate-x-0": isActive(),
+              "opacity-0 -translate-x-2 pointer-events-none": !isActive(),
+            }}
           >
             {props.member.socialLinks?.LinkedIn && (
               <a
@@ -315,16 +311,18 @@ function MemberRow(props: {
           </div>
         )}
         <span
-          class={cn(
-            "w-4 h-3 rounded-[5px] flex-shrink-0 transition-all duration-300",
-            isActive() ? "bg-foreground w-5" : "bg-foreground/25",
-          )}
+          class="w-4 h-3 rounded-[5px] flex-shrink-0 transition-all duration-300"
+          classList={{
+            "bg-foreground w-5": isActive(),
+            "bg-foreground/25": !isActive(),
+          }}
         />
         <span
-          class={cn(
-            "text-base md:text-[18px] font-semibold leading-none tracking-tight transition-colors duration-300",
-            isActive() ? "text-foreground" : "text-foreground/80",
-          )}
+          class="text-base md:text-[18px] font-semibold leading-none tracking-tight transition-colors duration-300"
+          classList={{
+            "text-foreground": isActive(),
+            "text-foreground/80": !isActive(),
+          }}
         >
           {props.member.name}
         </span>

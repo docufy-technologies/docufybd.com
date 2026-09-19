@@ -4,7 +4,9 @@ import { IconChevronDown } from "@tabler/icons-solidjs";
 
 export function Accordion(props: JSX.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div class={`space-y-2 ${props.class || ""}`.trim()}>{props.children}</div>
+    <div class="space-y-2" classList={{ [props.class ?? ""]: !!props.class }}>
+      {props.children}
+    </div>
   );
 }
 
@@ -14,7 +16,8 @@ export function AccordionItem(
   return (
     <details
       open={props.open}
-      class={`group border-b border-border ${props.class || ""}`.trim()}
+      class="group border-b border-border"
+      classList={{ [props.class ?? ""]: !!props.class }}
     >
       {props.children}
     </details>
@@ -24,7 +27,8 @@ export function AccordionItem(
 export function AccordionTrigger(props: JSX.HTMLAttributes<HTMLElement>) {
   return (
     <summary
-      class={`flex cursor-pointer list-none items-center justify-between py-4 text-left font-semibold transition-all hover:underline [&::-webkit-details-marker]:hidden ${props.class || ""}`.trim()}
+      class="flex cursor-pointer list-none items-center justify-between py-4 text-left font-semibold transition-all hover:underline [&::-webkit-details-marker]:hidden"
+      classList={{ [props.class ?? ""]: !!props.class }}
     >
       <span>{props.children}</span>
       <IconChevronDown
@@ -41,7 +45,8 @@ export function AccordionTrigger(props: JSX.HTMLAttributes<HTMLElement>) {
 export function AccordionContent(props: JSX.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      class={`overflow-hidden pb-4 pt-0 text-sm ${props.class || ""}`.trim()}
+      class="overflow-hidden pb-4 pt-0 text-sm"
+      classList={{ [props.class ?? ""]: !!props.class }}
     >
       {props.children}
     </div>

@@ -1,7 +1,5 @@
 import type { JSX } from "solid-js";
 
-import { cn } from "@/lib/utils";
-
 type CardProps = JSX.HTMLAttributes<HTMLDivElement>;
 type CardHeaderProps = JSX.HTMLAttributes<HTMLDivElement>;
 type CardTitleProps = JSX.HTMLAttributes<HTMLHeadingElement>;
@@ -9,49 +7,65 @@ type CardDescriptionProps = JSX.HTMLAttributes<HTMLParagraphElement>;
 type CardContentProps = JSX.HTMLAttributes<HTMLDivElement>;
 type CardFooterProps = JSX.HTMLAttributes<HTMLDivElement>;
 
-export function Card({ class: className, ...props }: CardProps) {
+export function Card(props: CardProps) {
   return (
     <div
-      class={cn(
-        "rounded-lg border bg-card text-card-foreground shadow-sm",
-        className,
-      )}
-      {...props}
-    />
+      class="rounded-lg border bg-card text-card-foreground shadow-sm"
+      classList={{ [props.class ?? ""]: !!props.class }}
+    >
+      {props.children}
+    </div>
   );
 }
 
-export function CardHeader({ class: className, ...props }: CardHeaderProps) {
+export function CardHeader(props: CardHeaderProps) {
   return (
-    <div class={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+    <div
+      class="flex flex-col space-y-1.5 p-6"
+      classList={{ [props.class ?? ""]: !!props.class }}
+    >
+      {props.children}
+    </div>
   );
 }
 
-export function CardTitle({ class: className, ...props }: CardTitleProps) {
+export function CardTitle(props: CardTitleProps) {
   return (
     <h3
-      class={cn(
-        "text-2xl font-semibold leading-none tracking-tight",
-        className,
-      )}
-      {...props}
-    />
+      class="text-2xl font-semibold leading-none tracking-tight"
+      classList={{ [props.class ?? ""]: !!props.class }}
+    >
+      {props.children}
+    </h3>
   );
 }
 
-export function CardDescription({
-  class: className,
-  ...props
-}: CardDescriptionProps) {
+export function CardDescription(props: CardDescriptionProps) {
   return (
-    <p class={cn("text-sm text-muted-foreground", className)} {...props} />
+    <p
+      class="text-sm text-muted-foreground"
+      classList={{ [props.class ?? ""]: !!props.class }}
+    >
+      {props.children}
+    </p>
   );
 }
 
-export function CardContent({ class: className, ...props }: CardContentProps) {
-  return <div class={cn("p-6 pt-0", className)} {...props} />;
+export function CardContent(props: CardContentProps) {
+  return (
+    <div class="p-6 pt-0" classList={{ [props.class ?? ""]: !!props.class }}>
+      {props.children}
+    </div>
+  );
 }
 
-export function CardFooter({ class: className, ...props }: CardFooterProps) {
-  return <div class={cn("flex items-center p-6 pt-0", className)} {...props} />;
+export function CardFooter(props: CardFooterProps) {
+  return (
+    <div
+      class="flex items-center p-6 pt-0"
+      classList={{ [props.class ?? ""]: !!props.class }}
+    >
+      {props.children}
+    </div>
+  );
 }

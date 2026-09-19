@@ -7,20 +7,20 @@ import {
 } from "@tabler/icons-solidjs";
 import { Link, type LinkProps } from "@tanstack/solid-router";
 
-function FooterLink({ label, to }: { label: string; to: LinkProps["to"] }) {
+function FooterLink(props: { label: string; to: LinkProps["to"] }) {
   return (
     <Link
-      to={to}
+      to={props.to}
       class="text-muted-foreground hover:text-primary block duration-150"
     >
-      {label}
+      {props.label}
     </Link>
   );
 }
 
 export default function Footer() {
   return (
-    <footer class="pb-16 bg-background/75 backdrop-blur-xl">
+    <footer class="pb-16">
       <div class="mx-auto max-w-4xl px-6">
         <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
           <FooterLink label="Who We Are" to="/about" />
