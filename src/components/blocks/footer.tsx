@@ -20,7 +20,7 @@ function FooterLink(props: { label: string; to: LinkProps["to"] }) {
 
 export default function Footer() {
   return (
-    <footer class="pb-16">
+    <footer class="pb-8">
       <div class="mx-auto max-w-4xl px-6">
         <div class="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2">
           <FooterLink label="Who We Are" to="/about" />
@@ -74,7 +74,7 @@ export default function Footer() {
             <IconMail />
           </a>
         </div>
-        <span class="text-muted-foreground block text-center text-base font-bold">
+        <span class="text-muted-foreground block text-center text-base">
           {" "}
           © {new Date().getFullYear()} <a href="https://docufybd.com">Docufy</a>
           , All rights reserved

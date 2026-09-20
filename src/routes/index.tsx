@@ -33,7 +33,7 @@ function BracketContainer(props: { children: JSX.Element }) {
 function Home() {
   return (
     <>
-      <section class="w-dvw h-dvh flex items-center justify-center text-center px-8 flex-col gap-12">
+      <section class="w-dvw h-dvh flex items-center justify-center text-center px-16 flex-col gap-12">
         <BracketContainer>
           <p class="text-foreground/90 text-sm">Docufy delivers</p>
           <h1 class="lg:text-6xl capitalize leading-none">
@@ -69,7 +69,7 @@ function Home() {
         </div>
       </section>
 
-      <section class="w-full px-6 py-24 md:py-32">
+      <section class="w-full px-16 py-16">
         <div class="max-w-6xl mx-auto">
           <div class="font-body leading-tight text-center text-3xl max-sm:text-2xl w-full pb-16">
             Why choose <span class="italic font-heading ">Docufy</span>?

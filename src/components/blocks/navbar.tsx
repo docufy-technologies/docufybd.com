@@ -19,16 +19,10 @@ function NavBar() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <nav class="fixed top-0 left-0 z-100 flex w-full items-center justify-between px-6 py-6 max-sm:px-4">
+    <nav class="fixed top-0 left-0 z-100 flex w-full items-center justify-between px-12 py-6 max-sm:px-4">
       {/* Logo */}
       <Link to="/" class="flex shrink-0 items-center" onClick={closeMobileMenu}>
-        <img
-          src="/logo.png"
-          alt="Docufy"
-          width={120}
-          height={32}
-          class="w-30 h-8 object-contain"
-        />
+        <img src="/logo.png" alt="Docufy" class="h-8 object-contain" />
       </Link>
 
       {/* Center nav links - Desktop */}
@@ -71,7 +65,6 @@ function NavBar() {
           class="flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background hover:bg-foreground/90 transition-colors"
         >
           Book a Meeting
-          <span aria-hidden="true">→</span>
         </a>
       </div>
 
