@@ -4,6 +4,33 @@ export const reasons = [
   "Each deliverable is tailored for your goal, not for our portfolio.",
 ];
 
+export const testimonials = [
+  {
+    quote:
+      "Docufy captured our event agenda, vendor notes, and approvals into a clean event dossier we could share instantly.",
+    name: "Labby Ahsan",
+    designation: "Founder, Newspaper Olympiad",
+  },
+  {
+    quote:
+      "Docufy standardized our corporate and HR documentation, so compliance checks are faster and handoffs are painless.",
+    name: "Rakib Shahriar Rimen",
+    designation: "Founder, Peora",
+  },
+  {
+    quote:
+      "Docufy refined our brand briefs and marketing decks with crisp messaging that keeps campaigns aligned.",
+    name: "Alamin Pranto",
+    designation: "Founder, Start2Scaleup",
+  },
+  {
+    quote:
+      "Docufy organized our SOPs and operational workflows, so the team follows one reliable playbook.",
+    name: "Arifa Jahan Bithi",
+    designation: "Founder, Women's Dreamer Cricket Academy, Rangpur",
+  },
+];
+
 import {
   IconAdjustments,
   IconAppWindow,
