@@ -81,8 +81,8 @@ function RouteComponent() {
             >
               Docufy Fiscal
             </a>{" "}
-            for finance. We work with companies that need real outcomes, not
-            slide decks. Every project ships with structure, clear
+            for tax solutions. We work with companies that need real outcomes,
+            not slide decks. Every project ships with structure, clear
             communication, and someone actually accountable.
           </span>
         </div>
