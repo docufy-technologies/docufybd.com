@@ -2,7 +2,8 @@ import { IconPlus as PlusIcon } from "@tabler/icons-solidjs";
 import { createFileRoute } from "@tanstack/solid-router";
 import { For, type JSX } from "solid-js";
 import AnimatedButton from "@/components/ui/animated-button";
-import { reasons } from "@/constants";
+import { reasons, testimonials } from "@/constants";
+import Testimonial from "@/components/blocks/testimonial";
 export const Route = createFileRoute("/")({ component: Home });
 
 function BracketContainer(props: { children: JSX.Element }) {
@@ -35,9 +36,9 @@ function Home() {
     <>
       <section class="w-dvw h-dvh flex items-center justify-center text-center px-16 flex-col gap-12">
         <BracketContainer>
-          <p class="text-foreground/90 text-sm">Docufy delivers</p>
+          <p class="text-foreground/90 text-sm capitalize">Docufy delivers</p>
           <h1 class="lg:text-6xl capitalize leading-none">
-            Work You Can <span class="italic">Trust</span>
+            Work You Can <span class="italic text-accent">Trust</span>
           </h1>
           <span class="text-foreground/90">
             At Docufy, we are committed to delivering high-quality services that
@@ -71,14 +72,12 @@ function Home() {
 
       <section class="w-full px-16 py-16">
         <div class="max-w-6xl mx-auto">
-          <div class="font-body leading-tight text-center text-3xl max-sm:text-2xl w-full pb-16">
-            Why choose <span class="italic font-heading ">Docufy</span>?
-          </div>
+          <h1 class="capitalize text-center pb-16">Why choose Docufy?</h1>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <For each={reasons}>
               {(reason, i) => (
-                <div class="bg-card/75 p-6 flex flex-col justify-start items-start gap-8 transition-colors hover:border-border">
-                  <h1 class="text-7xl">{i() + 1}</h1>
+                <div class="border p-6 flex flex-col justify-start items-start gap-8 transition-colors hover:border-border">
+                  <h1 class="md:text-5xl text-accent">{i() + 1}</h1>
                   <span class="text-2xl leading-snug">{reason}</span>
                 </div>
               )}
@@ -86,12 +85,28 @@ function Home() {
           </div>
         </div>
       </section>
-
+      <section class="w-full px-16 py-16">
+        <h1 class="text-center capitalize pb-16">
+          What Folks Say About Docufy
+        </h1>
+        <For each={testimonials}>
+          {(testimonial) => (
+            <div class="max-w-3xl mx-auto px-4 py-8">
+              <Testimonial
+                quote={testimonial.quote}
+                name={testimonial.name}
+                designation={testimonial.designation}
+                rightward={true}
+              />
+            </div>
+          )}
+        </For>
+      </section>
       <section class="w-full px-16 py-6 md:py-32">
-        <div class="max-w-2xl mx-auto">
-          <h1 class="text-center leading-tight font-medium text-3xl md:text-5xl mb-8">
-            Add a why to your worries. Let Docufy handle them for you.
-          </h1>
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-center leading-tight font-body mb-8">
+            Add a why to your worries. Let Docufy handle them.
+          </h2>
           <div class="flex gap-6 justify-center items-center max-sm:flex-col max-w-sm mx-auto">
             <AnimatedButton variant="accent" class="w-full">
               <a
