@@ -254,10 +254,7 @@ function MemberRow(props: {
     <button
       type="button"
       class="cursor-pointer transition-opacity duration-300 text-right"
-      classList={{
-        "opacity-50": isDimmed(),
-        "opacity-100": !isDimmed(),
-      }}
+      classList={{ "opacity-50": isDimmed(), "opacity-100": !isDimmed() }}
       onMouseEnter={() => props.onHover(props.member.id)}
       onMouseLeave={() => props.onHover(null)}
     >
@@ -311,7 +308,7 @@ function MemberRow(props: {
           </div>
         )}
         <span
-          class="w-4 h-3 rounded-[5px] flex-shrink-0 transition-all duration-300"
+          class="w-4 h-3 rounded-[5px] shrink-0 transition-all duration-300"
           classList={{
             "bg-foreground w-5": isActive(),
             "bg-foreground/25": !isActive(),
@@ -329,7 +326,7 @@ function MemberRow(props: {
       </div>
 
       {/* Role */}
-      <p class="mt-1.5 pl-[27px] text-[7px] md:text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
+      <p class="mt-1.5 pl-6.75 text-[7px] md:text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
         {props.member.role}
       </p>
     </button>
