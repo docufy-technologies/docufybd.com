@@ -1,9 +1,10 @@
 import { IconPlus as PlusIcon } from "@tabler/icons-solidjs";
 import { createFileRoute } from "@tanstack/solid-router";
 import { For, type JSX } from "solid-js";
-import AnimatedButton from "@/components/ui/animated-button";
-import { reasons, testimonials } from "@/constants";
 import Testimonial from "@/components/blocks/testimonial";
+import AnimatedButton from "@/components/ui/animated-button";
+import Timeline from "@/components/ui/timeline";
+import { reasons, testimonials, workProcessSteps } from "@/constants";
 export const Route = createFileRoute("/")({ component: Home });
 
 function BracketContainer(props: { children: JSX.Element }) {
@@ -70,8 +71,8 @@ function Home() {
         </div>
       </section>
 
-      <section class="w-full px-16 py-16">
-        <div class="max-w-6xl mx-auto">
+      <section class="w-full px-4 pt-8 pb-24">
+        <div class="max-w-5xl mx-auto">
           <h1 class="capitalize text-center pb-16">Why choose Docufy?</h1>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <For each={reasons}>
@@ -85,10 +86,22 @@ function Home() {
           </div>
         </div>
       </section>
-      <section class="w-full px-16 py-16">
-        <h1 class="text-center capitalize pb-16">
-          What Folks Say About Docufy
-        </h1>
+
+      <section class="w-full px-4 py-24">
+        <div class="mx-auto max-w-6xl">
+          <div class="w-full pb-16 text-center max-w-2xl mx-auto">
+            <h1 class="capitalize pb-8">Work Process of Docufy</h1>
+            <p class="text-base leading-relaxed text-foreground/80">
+              From first message to final copy, a clear path with updates at
+              each stage. No guesswork about what happens next.
+            </p>
+          </div>
+          <Timeline items={workProcessSteps} />
+        </div>
+      </section>
+
+      <section class="w-full px-4 py-24">
+        <h1 class="text-center capitalize pb-8">What Folks Say About Docufy</h1>
         <For each={testimonials}>
           {(testimonial) => (
             <div class="max-w-3xl mx-auto px-4 py-8">
@@ -102,7 +115,8 @@ function Home() {
           )}
         </For>
       </section>
-      <section class="w-full px-16 py-6 md:py-32">
+
+      <section class="w-full px-16 py-32">
         <div class="max-w-3xl mx-auto">
           <h2 class="text-center leading-tight font-body mb-8">
             Add a why to your worries. Let Docufy handle them.
