@@ -3,13 +3,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "NODE_OPTIONS='--max-old-space-size=4096' vite dev --port 3000",
+    "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "biome format",
+    "format": "biome format --write",
     "lint": "biome lint",
-    "check": "biome check"
+    "check": "biome check --write"
   },
   "dependencies": {
     "@tabler/icons-solidjs": "^3.46.0",
@@ -20,11 +20,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.14",
-    "@swc/core": "^1.16.2",
     "@tailwindcss/vite": "^4.3.3",
     "@tanstack/router-cli": "^1.167.38",
     "@tanstack/router-plugin": "latest",
-    "swc": "^1.0.11",
     "typescript": "^7.0.2",
     "vite": "^8.3.0",
     "vite-plugin-solid": "^2.11.14"

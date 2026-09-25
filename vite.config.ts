@@ -15,16 +15,9 @@ export default defineConfig({
       generatedRouteTree: "./src/route-tree.gen.ts",
       routeToken: "_layout",
     }),
-    solidPlugin({
-      dev: false,
-      hot: true,
-      solid: {
-        generate: "dom",
-      },
-    }),
+    solidPlugin(),
   ],
   server: {
-    cors: false,
     preTransformRequests: true,
     watch: {
       ignored: [
@@ -54,17 +47,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: [
-      "solid-js",
-      "solid-js/web",
-      "solid-js/store",
-      "solid-js/html",
-      "class-variance-authority",
-    ],
-  },
-  css: {
-    devSourcemap: false,
-    transformer: "lightningcss",
+    include: ["solid-js", "solid-js/*"],
   },
   build: {
     rollupOptions: {
