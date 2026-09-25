@@ -58,10 +58,10 @@ function RouteComponent() {
 
       <section class="max-w-3xl sm:py-20 h-fit mx-auto flex flex-col gap-8 items-center justify-center">
         <div class="flex flex-col items-center justify-center sm:grid sm:grid-cols-3 gap-4 w-full pt-10">
-          <span class="uppercase font-bold h-full sm:mt-1 text-center text-accent">
+          <span class="uppercase font-bold font-heading h-full sm:mt-1 text-center text-accent">
             who we are
           </span>
-          <span class="sm:text-xl max-sm:text-center col-span-2 font-light max-sm:px-4">
+          <span class="sm:text-lg max-sm:text-center col-span-2 font-light max-sm:px-4">
             Docufy runs three specialized units: Docs by Docufy for
             documentation,{" "}
             <a
@@ -87,10 +87,10 @@ function RouteComponent() {
           </span>
         </div>
         <div class="flex flex-col sm:grid sm:grid-cols-3 gap-4 w-full pt-10">
-          <span class="uppercase h-full sm:mt-1 text-center font-bold text-accent">
+          <span class="uppercase h-full sm:mt-1 text-center font-bold text-accent font-heading">
             what we do
           </span>
-          <span class="sm:text-xl max-sm:text-center col-span-2 font-light max-sm:px-4">
+          <span class="sm:text-lg max-sm:text-center col-span-2 font-light max-sm:px-4">
             We start with research, not templates. As the first move, we
             understand the problem, then define the outcome, then build the
             solution. You get what you need to achieve your goals. Nothing
