@@ -1,6 +1,5 @@
-import type { JSX } from "solid-js";
-
 import { IconChevronDown } from "@tabler/icons-solidjs";
+import type { JSX } from "solid-js";
 
 export function Accordion(props: JSX.HTMLAttributes<HTMLDivElement>) {
   return (
