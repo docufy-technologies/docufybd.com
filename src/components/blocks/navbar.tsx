@@ -59,7 +59,7 @@ function NavTabMobile(props: {
 const ContactUsCTA = () => (
   <a
     href="mailto:info@docufybd.com"
-    class="px-4 rounded-4xl hover:bg-secondary h-9 flex items-center justify-center transition-all duration-300 ease-in-out text-sm"
+    class="px-4 backdrop-blur-2xl rounded-4xl hover:bg-secondary h-9 flex items-center justify-center transition-all duration-300 ease-in-out text-sm"
   >
     Contact Us
   </a>
@@ -78,7 +78,7 @@ const BookMeetingCTA = () => (
   </AnimatedButton>
 );
 
-function NavBar() {
+export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = createSignal(false);
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -91,7 +91,7 @@ function NavBar() {
       </Link>
 
       {/* Center nav links - Desktop */}
-      <ul class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full bg-transparent px-2 py-1 md:flex">
+      <ul class="absolute left-1/2 hidden backdrop-blur-2xl -translate-x-1/2 items-center gap-1 rounded-full bg-transparent px-2 py-1 md:flex">
         <For each={navLinks}>
           {(l) => (
             <NavTab to={l.to} onClick={closeMobileMenu}>
@@ -155,5 +155,3 @@ function NavBar() {
     </nav>
   );
 }
-
-export default NavBar;

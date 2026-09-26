@@ -3,7 +3,7 @@ import { createSignal, onCleanup, onMount } from "solid-js";
 
 const variantClasses = {
   default: "bg-primary text-primary-foreground",
-  foreground: "bg-foreground text-background hover:bg-secondary",
+  foreground: "bg-foreground text-background",
   outline: "text-foreground",
   secondary: "bg-secondary text-secondary-foreground",
   ghost: "bg-transparent text-foreground",
@@ -77,7 +77,7 @@ export function AnimatedButton(props: AnimatedButtonProps) {
         transform: pressed() ? "scale(0.97)" : "scale(1)",
         transition: "transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
       }}
-      class="group inline-flex items-center justify-center rounded-4xl relative overflow-hidden border border-secondary cursor-pointer text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 [--shine:rgba(0,0,0,.66)] dark:[--shine:rgba(255,255,255,.66)]"
+      class="group inline-flex items-center justify-center rounded-4xl relative overflow-hidden border border-secondary cursor-pointer text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 [--shine:rgba(0,0,0,.66)] dark:[--shine:rgba(255,255,255,.66)] hover:bg-secondary hover:text-secondary-foreground"
       classList={{
         [variantClasses[props.variant ?? "default"]]: true,
         [sizeClasses[props.size ?? "default"]]: true,
