@@ -13,8 +13,8 @@ function RootComponent() {
         aria-hidden="true"
         class="pointer-events-none fixed inset-0 z-0 bg-[url('/background.jpeg')] bg-cover bg-center bg-no-repeat bg-fixed"
       />
+      <NavBar />
       <div class="relative z-10 bg-background/50 min-h-screen w-screen overflow-y-auto flex flex-col backdrop-blur-lg">
-        <NavBar />
         <Outlet />
         <Footer />
       </div>
