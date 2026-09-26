@@ -1,42 +1,17 @@
 import type { JSX } from "solid-js";
 import { createSignal, onCleanup, onMount } from "solid-js";
 
-type AnimatedButtonVariant =
-  | "default"
-  | "outline"
-  | "secondary"
-  | "ghost"
-  | "destructive"
-  | "accent"
-  | "link";
-
-type AnimatedButtonSize =
-  | "default"
-  | "xs"
-  | "sm"
-  | "lg"
-  | "icon"
-  | "icon-xs"
-  | "icon-sm"
-  | "icon-lg";
-
-type AnimatedButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
-  children?: JSX.Element;
-  variant?: AnimatedButtonVariant;
-  size?: AnimatedButtonSize;
-};
-
-const variantClasses: Record<AnimatedButtonVariant, string> = {
+const variantClasses = {
   default: "bg-primary text-primary-foreground",
+  foreground: "bg-foreground text-background hover:bg-secondary",
   outline: "text-foreground",
   secondary: "bg-secondary text-secondary-foreground",
   ghost: "bg-transparent text-foreground",
   destructive: "bg-destructive/10 text-destructive",
   accent: "bg-accent text-accent-foreground",
-  link: "bg-transparent text-primary",
-};
+} satisfies Record<string, string>;
 
-const sizeClasses: Record<AnimatedButtonSize, string> = {
+const sizeClasses = {
   default:
     "h-9 gap-1.5 px-3 text-sm has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5",
   xs: "h-6 gap-1 px-2.5 text-xs has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2 [&_svg:not([class*='size-'])]:size-3",
@@ -46,8 +21,15 @@ const sizeClasses: Record<AnimatedButtonSize, string> = {
   "icon-xs": "size-6 [&_svg:not([class*='size-'])]:size-3",
   "icon-sm": "size-8",
   "icon-lg": "size-10",
-};
+} satisfies Record<string, string>;
 
+type AnimatedButtonVariant = keyof typeof variantClasses;
+type AnimatedButtonSize = keyof typeof sizeClasses;
+type AnimatedButtonProps = JSX.ButtonHTMLAttributes<HTMLButtonElement> & {
+  children?: JSX.Element;
+  variant?: AnimatedButtonVariant;
+  size?: AnimatedButtonSize;
+};
 function getRestProps(props: AnimatedButtonProps) {
   const copy = { ...props } as Record<string, unknown>;
   delete copy.variant;
