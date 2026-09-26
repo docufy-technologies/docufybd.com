@@ -1,14 +1,19 @@
-import { createFileRoute } from "@tanstack/solid-router";
+import { createFileRoute, type LinkProps } from "@tanstack/solid-router";
 import type { JSXElement } from "solid-js";
 
 export const Route = createFileRoute("/concerns")({
   component: RouteComponent,
 });
 
-function ConcernLink(props: { href: string; children: JSXElement }) {
+function ConcernLink(
+  props:
+    | { href: string; children: JSXElement }
+    | { to: LinkProps["to"]; children: JSXElement },
+) {
+  const href = "href" in props ? props.href : props.to;
   return (
     <a
-      href={props.href}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       class="size-full bg-muted/75 p-12 border hover:bg-muted/30 backdrop-blur-2xl hover:border-accent flex items-center justify-center"
@@ -30,7 +35,7 @@ function RouteComponent() {
             rel="noopener noreferrer"
             target="_blank"
           >
-            Docufy Covero
+            Docufy Corevo
           </a>
           ,{" "}
           <a
@@ -71,7 +76,7 @@ function RouteComponent() {
             <ConcernLink href="https://fiscal.docufybd.com/solutions">
               <h3>[Docufy Fiscal Logo]</h3>
             </ConcernLink>
-            <ConcernLink href="/docufy-covero-solutions">
+            <ConcernLink to="/docufy-corevo-solutions">
               <img
                 src="/logo.png"
                 alt="Docufy Tech Logo"

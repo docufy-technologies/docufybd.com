@@ -12,7 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ConcernsRouteImport } from './routes/concerns'
-import { Route as DocufyCoveroSolutionsRouteImport } from './routes/docufy-covero-solutions'
+import { Route as DocufyCorevoSolutionsRouteImport } from './routes/docufy-corevo-solutions'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
@@ -32,9 +32,9 @@ const ConcernsRoute = ConcernsRouteImport.update({
   path: '/concerns',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DocufyCoveroSolutionsRoute = DocufyCoveroSolutionsRouteImport.update({
-  id: '/docufy-covero-solutions',
-  path: '/docufy-covero-solutions',
+const DocufyCorevoSolutionsRoute = DocufyCorevoSolutionsRouteImport.update({
+  id: '/docufy-corevo-solutions',
+  path: '/docufy-corevo-solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -57,7 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/concerns': typeof ConcernsRoute
-  '/docufy-covero-solutions': typeof DocufyCoveroSolutionsRoute
+  '/docufy-corevo-solutions': typeof DocufyCorevoSolutionsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -66,7 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/concerns': typeof ConcernsRoute
-  '/docufy-covero-solutions': typeof DocufyCoveroSolutionsRoute
+  '/docufy-corevo-solutions': typeof DocufyCorevoSolutionsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -76,7 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/concerns': typeof ConcernsRoute
-  '/docufy-covero-solutions': typeof DocufyCoveroSolutionsRoute
+  '/docufy-corevo-solutions': typeof DocufyCorevoSolutionsRoute
   '/faq': typeof FaqRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-and-conditions': typeof TermsAndConditionsRoute
@@ -87,7 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/concerns'
-    | '/docufy-covero-solutions'
+    | '/docufy-corevo-solutions'
     | '/faq'
     | '/privacy-policy'
     | '/terms-and-conditions'
@@ -96,7 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/concerns'
-    | '/docufy-covero-solutions'
+    | '/docufy-corevo-solutions'
     | '/faq'
     | '/privacy-policy'
     | '/terms-and-conditions'
@@ -105,7 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/concerns'
-    | '/docufy-covero-solutions'
+    | '/docufy-corevo-solutions'
     | '/faq'
     | '/privacy-policy'
     | '/terms-and-conditions'
@@ -115,7 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ConcernsRoute: typeof ConcernsRoute
-  DocufyCoveroSolutionsRoute: typeof DocufyCoveroSolutionsRoute
+  DocufyCorevoSolutionsRoute: typeof DocufyCorevoSolutionsRoute
   FaqRoute: typeof FaqRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsAndConditionsRoute: typeof TermsAndConditionsRoute
@@ -144,11 +144,11 @@ declare module '@tanstack/solid-router' {
       preLoaderRoute: typeof ConcernsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/docufy-covero-solutions': {
-      id: '/docufy-covero-solutions'
-      path: '/docufy-covero-solutions'
-      fullPath: '/docufy-covero-solutions'
-      preLoaderRoute: typeof DocufyCoveroSolutionsRouteImport
+    '/docufy-corevo-solutions': {
+      id: '/docufy-corevo-solutions'
+      path: '/docufy-corevo-solutions'
+      fullPath: '/docufy-corevo-solutions'
+      preLoaderRoute: typeof DocufyCorevoSolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -179,7 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ConcernsRoute: ConcernsRoute,
-  DocufyCoveroSolutionsRoute: DocufyCoveroSolutionsRoute,
+  DocufyCorevoSolutionsRoute: DocufyCorevoSolutionsRoute,
   FaqRoute: FaqRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsAndConditionsRoute: TermsAndConditionsRoute,

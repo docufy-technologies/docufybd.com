@@ -62,13 +62,14 @@ function RouteComponent() {
             who we are
           </span>
           <span class="sm:text-lg max-sm:text-center col-span-2 font-light max-sm:px-4">
-            Docufy runs three specialized units: Docs by Docufy for
+            Docufy runs three specialized units:{" "}
+            <span class="font-heading italic">Docufy Corevo</span> for
             documentation,{" "}
             <a
               href="https://tech.docufybd.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="border-b border-accent"
+              class="font-heading italic"
             >
               Docufy Tech
             </a>{" "}
@@ -77,7 +78,7 @@ function RouteComponent() {
               href="https://fiscal.docufybd.com"
               target="_blank"
               rel="noopener noreferrer"
-              class="border-b border-accent"
+              class="font-heading italic"
             >
               Docufy Fiscal
             </a>{" "}

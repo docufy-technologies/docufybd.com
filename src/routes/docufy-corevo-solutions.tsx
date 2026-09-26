@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/solid-router";
 import { For, type JSX } from "solid-js";
 import { docsSolutions } from "@/constants";
-export const Route = createFileRoute("/docufy-covero-solutions")({
+export const Route = createFileRoute("/docufy-corevo-solutions")({
   component: RouteComponent,
 });
 
@@ -33,7 +33,7 @@ function RouteComponent() {
   return (
     <section class="py-12 md:py-20 max-sm:mt-20">
       <div class="mx-auto max-w-5xl space-y-8 px-6 text-center flex flex-col items-center justify-center">
-        <Entitled>Solutions that Docufy Covero Offers</Entitled>
+        <Entitled>Solutions that Docufy Corevo Offers</Entitled>
         <div class="flex justify-center gap-2">
           <div class="relative mx-auto grid max-w-6xl *:p-12 sm:grid-cols-2 lg:grid-cols-3 overflow-hidden gap-2">
             <For each={docsSolutions}>
