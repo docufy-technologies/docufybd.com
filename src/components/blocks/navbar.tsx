@@ -59,7 +59,7 @@ function NavTabMobile(props: {
 const ContactUsCTA = () => (
   <a
     href="mailto:info@docufybd.com"
-    class="px-4 backdrop-blur-2xl rounded-4xl hover:bg-secondary h-9 flex items-center justify-center transition-all duration-300 ease-in-out text-sm"
+    class="px-4 backdrop-blur-2xl font-medium text-base rounded-4xl hover:bg-secondary h-9 flex items-center justify-center transition-all duration-300 ease-in-out"
   >
     Contact Us
   </a>
