@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({ component: Home });
 
 function BracketContainer(props: { children: JSX.Element }) {
   return (
-    <div class="relative mx-auto flex max-w-3xl w-full flex-col gap-8 justify-between border-y bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)] px-16 py-8">
+    <div class="relative mx-auto flex max-w-3xl w-full flex-col gap-8 justify-between border-y bg-[radial-gradient(35%_80%_at_25%_0%,--theme(--color-foreground/.08),transparent)] px-16 max-sm:px-4 py-8">
       <PlusIcon
         class="absolute left-[-11.5px] top-[-12.5px] z-1 size-6"
         stroke-width={1}
@@ -35,10 +35,10 @@ function BracketContainer(props: { children: JSX.Element }) {
 function Home() {
   return (
     <>
-      <section class="w-dvw h-dvh flex items-center justify-center text-center px-16 flex-col gap-12">
+      <section class="w-dvw h-dvh flex items-center justify-center text-center px-16 max-sm:px-8 flex-col gap-12 max-sm:pt-12">
         <BracketContainer>
           <p class="text-foreground/90 text-sm capitalize">Docufy delivers</p>
-          <h1 class="lg:text-6xl capitalize leading-none">
+          <h1 class="lg:text-6xl text-3xl capitalize leading-none">
             Work You Can <span class="italic text-accent">Trust</span>
           </h1>
           <span class="text-foreground/90">
@@ -90,8 +90,8 @@ function Home() {
       <section class="w-full px-4 py-24">
         <div class="mx-auto max-w-6xl">
           <div class="w-full pb-16 text-center max-w-2xl mx-auto">
-            <h1 class="capitalize pb-8">Work Process of Docufy</h1>
-            <p class="text-base leading-relaxed text-foreground/80">
+            <h1 class="capitalize pb-8 max-sm:px-6">Work Process of Docufy</h1>
+            <p class="text-base leading-relaxed text-foreground/80 max-sm:px-6">
               From first message to final copy, a clear path with updates at
               each stage. No guesswork about what happens next.
             </p>

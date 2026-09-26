@@ -74,11 +74,11 @@ export default function Footer() {
             <IconMail />
           </a>
         </div>
-        <span class="text-muted-foreground block text-center text-base">
+        <p class="text-muted-foreground block text-center text-base">
           {" "}
           © {new Date().getFullYear()} <a href="https://docufybd.com">Docufy</a>
           , All rights reserved
-        </span>
+        </p>
       </div>
     </footer>
   );
