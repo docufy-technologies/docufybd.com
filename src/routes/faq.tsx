@@ -49,10 +49,10 @@ function RouteComponent() {
         <p class="mt-12 text-base sm:text-lg text-muted-foreground">
           Need a tailored quote? Reach us at{" "}
           <a
-            href="mailto:info@tech.docufybd.com"
+            href="mailto:info@docufybd.com"
             class="underline underline-offset-3"
           >
-            info@tech.docufybd.com
+            info@docufybd.com
           </a>{" "}
           .
         </p>
