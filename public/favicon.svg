@@ -1,0 +1,41 @@
+<svg width="100%" height="auto" viewBox="0 0 488.31 603.3" xmlns="http://www.w3.org/2000/svg">
+   <style>
+       @media (prefers-color-scheme: dark) {
+           g,
+           path {
+               fill: none;
+               stroke: #F2F0EB;
+           }
+       }
+       @media (prefers-color-scheme: light) {
+           g,
+           path {
+               fill: none;
+               stroke: #0a0a0a;
+           }
+       }
+   </style>
+   <g stroke-linecap="round" stroke-linejoin="bevel">
+       <path transform="matrix(1.7482 0 0 1.955 -318.68 -507.39)" clip-path="url(#prefix__a)" fill="none"
+           stroke-width="7.083" d="M230.39 299.59h194.75v228.48H230.39z" />
+       <g fill-rule="evenodd" paint-order="stroke fill markers">
+           <path d="M134.133 145.918h115.984" stroke-width="4.8420792" />
+           <path d="M268.537 145.939h113.25" stroke-width="5.07024" />
+           <path d="M134.007 169.79h111.716" stroke-width="4.9688352" />
+           <path d="M270.438 167.973h109.773M134.049 475.674H243.81" stroke-width="5.07024" />
+           <path d="M270.375 475.906h106.507" stroke-width="5.1315054" />
+           <path d="M135.316 493.715H378.54" stroke-width="4.8526422" />
+           <g stroke-width="2.4">
+               <path
+                   d="M135.464 245.548h62.592M135.02 281.906h67.817M136.352 312.475h62.968M134.514 353.46h66.046M133.12 385.994h69.985M135.591 417.873h66.617M135.464 211.894h62.592"
+                   stroke-width="5.07024" />
+           </g>
+           <path d="M134.64 460.061h242.992" stroke-width="4.791376799999999" />
+           <path d="M158.85 116.046h194.546" stroke-width="5.2645992" />
+       </g>
+       <g fill-rule="evenodd" paint-order="stroke fill markers">
+           <path d="M62.12 92.873v415.633" stroke-width="4.6941972" />
+           <path d="M72.261 85.986v429.259" stroke-width="4.721661" />
+       </g>
+   </g>
+</svg>
