@@ -28,7 +28,7 @@ function RouteComponent() {
     <section class="py-12 md:py-20 max-sm:mt-20">
       <div class="mx-auto py-20 max-w-4xl space-y-8 gap-12 px-6 text-center flex flex-col items-center justify-center">
         <p class="text-center md:text-lg max-w-3xl font-medium text-foreground [&>a]:font-heading [&>a]:text-accent [&>a]:italic [&>a]:hover:underline [&>a]:underline-offset-4">
-          Docufy helps businesses and individuals through three services
+          Docufy supports businesses and individuals through three specialized
           subsidiaries:{" "}
           <a
             href="https://docufybd.com"
@@ -53,28 +53,28 @@ function RouteComponent() {
           >
             Docufy Fiscal
           </a>
-          . Each of these subsidiaries is designed to address specific
-          challenges in document management, providing tailored solutions that
-          enhance productivity and organization.
+          , each offering tailored solutions to improve productivity and
+          organization.{" "}
         </p>
 
         <div class="flex flex-col gap-6 w-full">
           <div class="text-center w-full flex flex-col items-center justify-center gap-4">
-            <h1>Concerns of Docufy</h1>
-            <small class="text-muted-foreground">
-              Click to See What Solutions They Offer
-            </small>
+            <h1 class="pb-8">Concerns of Docufy</h1>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-3 w-full gap-4">
-            <ConcernLink href="https://tech.docufybd.com/solutions">
+            <ConcernLink href="https://tech.docufybd.com/">
               <img
                 src="https://tech.docufybd.com/logo512.png"
                 alt="Docufy Tech Logo"
                 class="object-contain mx-auto h-4"
               />
             </ConcernLink>
-            <ConcernLink href="https://fiscal.docufybd.com/solutions">
-              <h3>[Docufy Fiscal Logo]</h3>
+            <ConcernLink href="https://fiscal.docufybd.com/">
+              <img
+                src="/docufy-fiscal.png"
+                alt="Docufy Fiscal Logo"
+                class="object-contain mx-auto h-24"
+              />
             </ConcernLink>
             <ConcernLink to="/docufy-corevo-solutions">
               <img
