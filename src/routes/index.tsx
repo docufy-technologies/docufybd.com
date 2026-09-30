@@ -90,7 +90,7 @@ function Home() {
       <section class="w-full px-4 py-24">
         <div class="mx-auto max-w-6xl">
           <div class="w-full pb-16 text-center max-w-2xl mx-auto">
-            <h1 class="capitalize pb-8 max-sm:px-6">Work Process of Docufy</h1>
+            <h1 class="pb-8 max-sm:px-6">Work Process of Docufy</h1>
             <p class="text-base leading-relaxed text-foreground/80 max-sm:px-6">
               From first message to final copy, a clear path with updates at
               each stage. No guesswork about what happens next.
