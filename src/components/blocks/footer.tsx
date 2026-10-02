@@ -65,7 +65,7 @@ export default function Footer() {
             <IconBrandInstagram />
           </a>
           <a
-            href="mailto:info@tech.docufybd.com"
+            href="mailto:info@docufybd.com"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Email"

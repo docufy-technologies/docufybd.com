@@ -60,7 +60,7 @@ function Home() {
           </AnimatedButton>
           <AnimatedButton variant={"outline"} size={"lg"} class="w-full">
             <a
-              href="mailto:info@tech.docufybd.com"
+              href="mailto:info@docufybd.com"
               target="_blank"
               rel="noopener noreferrer"
               class="w-full h-full flex justify-center items-center"
@@ -124,7 +124,7 @@ function Home() {
           <div class="flex gap-6 justify-center items-center max-sm:flex-col max-w-sm mx-auto">
             <AnimatedButton variant="accent" class="w-full">
               <a
-                href={`mailto:info@tech.docufybd.com`}
+                href={`mailto:info@docufybd.com`}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="w-full h-full flex justify-center items-center"
